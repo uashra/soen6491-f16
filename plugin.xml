@@ -75,17 +75,17 @@
                  class="gr.uom.java.jdeodorant.refactoring.actions.MetricsMenu"
                  icon="icons/repair.png"
                  id="gr.uom.java.jdeodorant.actions.ReusabilityV1"
-                 label="Reusability v1"
+                 label="Reusability QMOOD"
                  menubarPath="MetricsMenu/sampleGroup"
-                 tooltip="Reusability v1">
+                 tooltip="Reusability QMOOD">
          </action>
          <action
                  class="gr.uom.java.jdeodorant.refactoring.actions.MetricsMenu"
                  icon="icons/repair.png"
                  id="gr.uom.java.jdeodorant.actions.ReusabilityV2"
-                 label="Reusability v2"
+                 label="Reusability Type 1-8"
                  menubarPath="MetricsMenu/sampleGroup"
-                 tooltip="Reusability v2">
+                 tooltip="Reusability Type 1-8">
          </action>
       </actionSet>
    </extension>

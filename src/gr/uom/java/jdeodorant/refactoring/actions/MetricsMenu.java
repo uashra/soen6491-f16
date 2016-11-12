@@ -29,8 +29,8 @@ import gr.uom.java.ast.ASTReader;
 import gr.uom.java.ast.CompilationErrorDetectedException;
 import gr.uom.java.ast.CompilationUnitCache;
 import gr.uom.java.ast.SystemObject;
-import gr.uom.java.jdeodorant.metrics.reusability.ReusabilityV1;
-import gr.uom.java.jdeodorant.metrics.reusability.ReusabilityV2;
+import gr.uom.java.jdeodorant.metrics.reusability.ReusabilityQMOOD;
+import gr.uom.java.jdeodorant.metrics.reusability.ReusabilityType18;
 import gr.uom.java.jdeodorant.refactoring.views.ElementChangedListener;
 
 
@@ -101,10 +101,10 @@ public class MetricsMenu implements IWorkbenchWindowActionDelegate  {
 		
 						
 						if(action.getId().equals("gr.uom.java.jdeodorant.actions.ReusabilityV1")) {
-							System.out.println("v1:" + ReusabilityV1.calculate(system));;
+							System.out.println("v1:" + ReusabilityQMOOD.calculate(system));;
 						}
 						else if(action.getId().equals("gr.uom.java.jdeodorant.actions.ReusabilityV2")) {
-							System.out.println("v2:" + ReusabilityV2.calculate(system));;
+							System.out.println("v2:" + ReusabilityType18.calculate(system));;
 						}
 						
 					}

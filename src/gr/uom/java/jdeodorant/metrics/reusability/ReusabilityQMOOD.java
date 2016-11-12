@@ -11,7 +11,7 @@ import gr.uom.java.ast.ClassObject;
 import gr.uom.java.ast.SystemObject;
 
 // Implementation for QMOOD reusability metric 
-public class ReusabilityV1 {
+public class ReusabilityQMOOD {
 
 	public static double calculate(SystemObject system) {
 		return calculateMessaging(system);
