@@ -3,57 +3,89 @@
 <plugin>
 
    <extension
-         point="org.eclipse.ui.actionSets">
+        point="org.eclipse.ui.actionSets">
+   <actionSet
+           label="BadSmells"
+           visible="true"
+           id="gr.uom.java.jdeodorant.BadSmells">
+      <menu
+              label="Bad Smells"
+              id="BadSmellsMenu">
+         <separator
+                 name="sampleGroup">
+         </separator>
+      </menu>
+      <action
+              class="gr.uom.java.jdeodorant.refactoring.actions.BadSmellsMenu"
+              icon="icons/repair.png"
+              id="gr.uom.java.jdeodorant.actions.FeatureEnvy"
+              label="Feature Envy"
+              menubarPath="BadSmellsMenu/sampleGroup"
+              tooltip="Feature Envy">
+      </action>
+      <action
+              class="gr.uom.java.jdeodorant.refactoring.actions.BadSmellsMenu"
+              icon="icons/repair.png"
+              id="gr.uom.java.jdeodorant.actions.TypeChecking"
+              label="Type Checking"
+              menubarPath="BadSmellsMenu/sampleGroup"
+              tooltip="Type Checking">
+      </action>
+      <action
+              class="gr.uom.java.jdeodorant.refactoring.actions.BadSmellsMenu"
+              icon="icons/repair.png"
+              id="gr.uom.java.jdeodorant.actions.LongMethod"
+              label="Long Method"
+              menubarPath="BadSmellsMenu/sampleGroup"
+              tooltip="Long Method">
+      </action>
+      <action
+              label="God Class"
+              icon="icons/repair.png"
+              class="gr.uom.java.jdeodorant.refactoring.actions.BadSmellsMenu"
+              tooltip="God Class"
+              menubarPath="BadSmellsMenu/sampleGroup"
+              id="gr.uom.java.jdeodorant.actions.GodClass">
+      </action>
+      <action
+              label="Duplicated Code"
+              icon="icons/repair.png"
+              class="gr.uom.java.jdeodorant.refactoring.actions.BadSmellsMenu"
+              tooltip="Duplicated Code"
+              menubarPath="BadSmellsMenu/sampleGroup"
+              id="gr.uom.java.jdeodorant.actions.DuplicatedCode">
+      </action>
+   </actionSet>
+</extension>
+
+   <extension
+           point="org.eclipse.ui.actionSets">
       <actionSet
-            label="BadSmells"
-            visible="true"
-            id="gr.uom.java.jdeodorant.BadSmells">
+              label="Metrics"
+              visible="true"
+              id="gr.uom.java.jdeodorant.Metrics">
          <menu
-               label="Bad Smells"
-               id="BadSmellsMenu">
+                 label="Metrics"
+                 id="MetricsMenu">
             <separator
-                  name="sampleGroup">
+                    name="sampleGroup">
             </separator>
          </menu>
          <action
-               class="gr.uom.java.jdeodorant.refactoring.actions.BadSmellsMenu"
-               icon="icons/repair.png"
-               id="gr.uom.java.jdeodorant.actions.FeatureEnvy"
-               label="Feature Envy"
-               menubarPath="BadSmellsMenu/sampleGroup"
-               tooltip="Feature Envy">
+                 class="gr.uom.java.jdeodorant.refactoring.actions.MetricsMenu"
+                 icon="icons/repair.png"
+                 id="gr.uom.java.jdeodorant.actions.ReusabilityV1"
+                 label="Reusability v1"
+                 menubarPath="MetricsMenu/sampleGroup"
+                 tooltip="Reusability v1">
          </action>
          <action
-               class="gr.uom.java.jdeodorant.refactoring.actions.BadSmellsMenu"
-               icon="icons/repair.png"
-               id="gr.uom.java.jdeodorant.actions.TypeChecking"
-               label="Type Checking"
-               menubarPath="BadSmellsMenu/sampleGroup"
-               tooltip="Type Checking">
-         </action>
-         <action
-               class="gr.uom.java.jdeodorant.refactoring.actions.BadSmellsMenu"
-               icon="icons/repair.png"
-               id="gr.uom.java.jdeodorant.actions.LongMethod"
-               label="Long Method"
-               menubarPath="BadSmellsMenu/sampleGroup"
-               tooltip="Long Method">
-         </action>
-         <action
-               label="God Class"
-               icon="icons/repair.png"
-               class="gr.uom.java.jdeodorant.refactoring.actions.BadSmellsMenu"
-               tooltip="God Class"
-               menubarPath="BadSmellsMenu/sampleGroup"
-               id="gr.uom.java.jdeodorant.actions.GodClass">
-         </action>
-         <action
-               label="Duplicated Code"
-               icon="icons/repair.png"
-               class="gr.uom.java.jdeodorant.refactoring.actions.BadSmellsMenu"
-               tooltip="Duplicated Code"
-               menubarPath="BadSmellsMenu/sampleGroup"
-               id="gr.uom.java.jdeodorant.actions.DuplicatedCode">
+                 class="gr.uom.java.jdeodorant.refactoring.actions.MetricsMenu"
+                 icon="icons/repair.png"
+                 id="gr.uom.java.jdeodorant.actions.ReusabilityV2"
+                 label="Reusability v2"
+                 menubarPath="MetricsMenu/sampleGroup"
+                 tooltip="Reusability v2">
          </action>
       </actionSet>
    </extension>
@@ -113,6 +145,7 @@
             name="Code Smell Package Explorer">
       </view>
    </extension>
+
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
