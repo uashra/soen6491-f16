@@ -1,8 +1,10 @@
 package gr.uom.java.jdeodorant.metrics.reusability;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -10,6 +12,7 @@ import gr.uom.java.ast.MethodObject;
 import gr.uom.java.ast.Access;
 import gr.uom.java.ast.ClassObject;
 import gr.uom.java.ast.FieldInstructionObject;
+import gr.uom.java.ast.FieldObject;
 import gr.uom.java.ast.SystemObject;
 
 // Implementation for QMOOD reusability metric 
@@ -77,7 +80,49 @@ public class ReusabilityQMOOD {
 	}
 
 	private static double calculateCoupling(SystemObject system) {
-		return 0.0;
+		Map<String, Integer> couplingMap = new HashMap<String, Integer>();
+		
+		Set<ClassObject> classes = system.getClassObjects();
+		List<String> classTypes  = system.getClassNames();
+		
+		for (ClassObject classObject : classes) {
+			List<String> cls = new ArrayList<String>(classTypes);
+			
+			cls.remove(classObject.getName());
+			int directCoupling = calculateCoupling(classObject, cls);
+			couplingMap.put(classObject.getName(), directCoupling);
+
+		}
+		
+		
+		double sumCoupling = 0.0;
+		for(String key : couplingMap.keySet()) {
+			sumCoupling += couplingMap.get(key);
+        	System.out.println( key + "  " +  couplingMap.get(key));
+        }
+		return sumCoupling/classes.size();
+		
+	}
+	
+	
+	
+	private static int calculateCoupling(ClassObject classObject, List<String> otherClasses){
+		Set<String> directClasses = new HashSet<String>();
+		ListIterator<FieldObject> fieldIterator = classObject.getFieldIterator();
+		while(fieldIterator.hasNext()) {
+			FieldObject field = fieldIterator.next();
+			if (otherClasses.contains(field.getClassName()))
+				directClasses.add(field.getClassName());
+		}
+			
+		List<MethodObject> methods = classObject.getMethodList();
+		for (int i = 0; i < methods.size() - 1; i++) {
+			List<FieldInstructionObject> methodParameters = methods.get(i).getFieldInstructions();
+			for (FieldInstructionObject param : methodParameters)
+				if(otherClasses.contains(param.getOwnerClass()))
+					directClasses.add(param.getOwnerClass());
+		}
+		return directClasses.size();
 	}
 	
 	private static double calculateCohesion(ClassObject classObject){
