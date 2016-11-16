@@ -14,7 +14,20 @@ import gr.uom.java.ast.SystemObject;
 public class ReusabilityQMOOD {
 
 	public static double calculate(SystemObject system) {
-		return calculateMessaging(system);
+		return  -0.25*calculateCoupling(system) +
+			     0.25*calculateCohesion(system) +
+			     0.5*calculateMessaging(system) + 
+			     0.5*calculateDesignSize(system);
+	}
+
+	private static double calculateDesignSize(SystemObject system) {
+		
+		return system.getClassObjects().size();
+	}
+
+	private static double calculateCohesion(SystemObject system) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	private static double calculateMessaging(SystemObject system) {
