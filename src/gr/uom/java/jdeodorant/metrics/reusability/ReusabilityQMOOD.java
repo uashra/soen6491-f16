@@ -19,10 +19,20 @@ import gr.uom.java.ast.SystemObject;
 public class ReusabilityQMOOD {
 
 	public static double calculate(SystemObject system) {
-		return  -0.25*calculateCoupling(system) +
-			     0.25*calculateCohesion(system) +
-			     0.5*calculateMessaging(system) + 
-			     0.5*calculateDesignSize(system);
+		double coupling   = calculateCoupling(system);
+		double cohesion   = calculateCohesion(system);
+		double messaging  = calculateMessaging(system);
+		double designSize = calculateDesignSize(system);
+		
+		System.out.println("coupling: " + coupling);
+		System.out.println("cohesion: " + cohesion);
+		System.out.println("messaging: " + messaging);
+		System.out.println("designSize: " + designSize);
+		
+		return  -0.25*coupling +
+			     0.25*cohesion +
+			     0.5*messaging + 
+			     0.5*designSize;
 	}
 
 	private static double calculateDesignSize(SystemObject system) {
@@ -30,6 +40,8 @@ public class ReusabilityQMOOD {
 	}
 
 	private static double calculateCohesion(SystemObject system) {
+		
+		System.out.println("Clculate Cohesion start");
 		Map<String, Double> cohesionMap = new HashMap<String, Double>();
 		Set<ClassObject> classes = system.getClassObjects();
 		
@@ -44,6 +56,8 @@ public class ReusabilityQMOOD {
 			sumCohesion += cohesionMap.get(key);
         	System.out.println( key + "  " +  cohesionMap.get(key));
         }
+		
+		System.out.println("Clculate Cohesion end");
 		return sumCohesion/classes.size();
 	}
 
@@ -126,6 +140,8 @@ public class ReusabilityQMOOD {
 	}
 	
 	private static double calculateCohesion(ClassObject classObject){
+		System.out.println("--------  Calculate Cohesion for " + classObject);
+		
 		List<MethodObject> methods = classObject.getMethodList();
 		Set<String> allParameters = new HashSet<String>();
 		
@@ -139,6 +155,9 @@ public class ReusabilityQMOOD {
 		if (allParameters.size() == 0)
 			return 0;
 		
+		for (String s : allParameters)
+		   System.out.println("----------- param: " + s);
+		
 		double sumIntersection = 0.0;
 		
 		for (int i = 0; i < methods.size() - 1; i++) {
@@ -148,8 +167,12 @@ public class ReusabilityQMOOD {
 						sumIntersection++;
 			
 		}		
+		System.out.println("---- sumIntersection: " + sumIntersection);
+		System.out.println("---- methods.size: " + methods.size());
 		
-		return sumIntersection/(methods.size() + allParameters.size());
+		System.out.println("---- allParameters " + allParameters.size());
+		
+		return sumIntersection/(methods.size() * allParameters.size());
 	}
 
 }
