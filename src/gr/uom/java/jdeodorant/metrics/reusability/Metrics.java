@@ -1,3 +1,5 @@
+package gr.uom.java.jdeodorant.metrics.reusability;
+
 import java.io.File;
 import java.util.HashMap;
 import java.io.FileNotFoundException;
