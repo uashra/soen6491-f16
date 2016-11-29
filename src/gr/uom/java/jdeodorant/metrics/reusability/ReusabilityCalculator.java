@@ -1,3 +1,5 @@
+package gr.uom.java.jdeodorant.metrics.reusability;
+
 public class ReusabilityCalculator {
 
 	public static void main(String args[]) {
