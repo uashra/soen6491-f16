@@ -73,7 +73,7 @@
          </menu>
          <action
                  class="gr.uom.java.jdeodorant.refactoring.actions.MetricsMenu"
-                 icon="icons/repair.png"
+                 icon="icons/reusability_transparent.png"
                  id="gr.uom.java.jdeodorant.actions.ReusabilityV1"
                  label="Reusability QMOOD"
                  menubarPath="MetricsMenu/sampleGroup"
@@ -81,7 +81,7 @@
          </action>
          <action
                  class="gr.uom.java.jdeodorant.refactoring.actions.MetricsMenu"
-                 icon="icons/repair.png"
+                 icon="icons/reusability_transparent.png"
                  id="gr.uom.java.jdeodorant.actions.ReusabilityV2"
                  label="Reusability Type 1-8"
                  menubarPath="MetricsMenu/sampleGroup"
